@@ -36,15 +36,45 @@ a:hover { color: #2C6FBF; }
 .brand .name { font-weight: 700; color: var(--text); font-size: 18px; }
 
 .nav {
-  display: flex; gap: 22px; align-items: center;
+  display: flex;
+  gap: 22px;
+  align-items: center;
 }
+
+/* Stil general pentru linkuri */
 .nav a {
-  color: var(--text); font-weight: 600;
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
+
+/* Butoane albastre (Programări / Contact) */
 .nav a.btn {
-  padding: 10px 16px; border-radius: 10px; background: var(--primary); color: white;
+  background: var(--primary);
+  color: white;
 }
-.nav a.btn:hover { background: var(--primaryDark); }
+
+/* Efect hover pentru toate linkurile */
+.nav a:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* Buton activ (pagina curentă) */
+.nav a.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* Hover mai închis pentru butoane */
+.nav a.btn:hover,
+.nav a.active:hover {
+  background: var(--primaryDark);
+}
+
 
 /* Mobile menu */
 .menu-toggle { display: none; border: 1px solid var(--border); background: var(--white); padding: 8px 10px; border-radius: 10px; }
