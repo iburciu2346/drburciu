@@ -224,3 +224,6 @@ a:hover { color: #2C6FBF; }
 .footer .cols { display:grid; grid-template-columns: 2fr 1fr 1fr; gap: 22px; }
 @media (max-width: 900px) { .footer .cols { grid-template-columns: 1fr; } }
 .small { font-size: 14px; color: var(--muted); }
+
+/* Ascunde formularul vechi de pe Home */
+#programari.section.appointment { display: none !important; }
