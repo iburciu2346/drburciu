@@ -26,16 +26,11 @@
     toggleMenu();
   });
 
-  // Închide când se alege un link (mobil sau desktop)
-  navLinks.forEach(a => {
-    a.addEventListener('click', () => closeMenu());
-  });
-
-  // Închide dacă se apasă în afara meniului mobil
+  // Închide când se apasă în afara meniului mobil
   document.addEventListener('click', (e) => {
     if (!document.body.classList.contains('menu-open')) return;
-    const isClickInside = mobileNav?.contains(e.target) || menuBtn?.contains(e.target);
-    if (!isClickInside) closeMenu();
+    const isInside = mobileNav?.contains(e.target) || menuBtn?.contains(e.target);
+    if (!isInside) closeMenu();
   });
 
   // Închide la Escape
@@ -55,6 +50,27 @@
   // Închide la schimbarea hash-ului (#servicii etc.)
   window.addEventListener('hashchange', closeMenu);
 
+  // ===== Link handling: închide meniul + forțează navigarea pe pagini (iOS fix) =====
+  navLinks.forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href') || '';
+      const isAnchor =
+        href.startsWith('#') ||
+        href === '' ||
+        href.startsWith('index.html#') ||
+        (a.hash && (href === a.hash || href.endsWith(a.hash)));
+
+      // închidem meniul
+      closeMenu();
+
+      // dacă NU e ancoră (#...), navigăm manual (iOS/Safari fix)
+      if (!isAnchor) {
+        e.preventDefault();
+        setTimeout(() => { window.location.href = a.href; }, 10);
+      }
+    }, { passive: false });
+  });
+
   // ===== Marchează linkul activ (pagina / ancora curentă) =====
   const markActiveLink = () => {
     const links = document.querySelectorAll('.nav a');
@@ -63,28 +79,24 @@
 
     links.forEach(link => link.classList.remove('active'));
 
-    // 1) dacă e pagină separată (programari.html) – potrivim exact href-ul
+    // 1) pagină separată (ex: /programari.html)
     const exact = Array.from(links).find(a => a.href === location.href);
     if (exact) {
       exact.classList.add('active');
       return;
     }
 
-    // 2) dacă suntem pe index și avem hash (#servicii etc.)
+    // 2) index + hash (#servicii etc.)
     if (curHash) {
       const hashLink = Array.from(links).find(a => a.hash === curHash && a.href.startsWith(curURL));
       if (hashLink) hashLink.classList.add('active');
       return;
     }
-
-    // 3) fallback: dacă suntem pe index fără hash – nu marcăm nimic sau marchează primul
-    // (comentat intenționat)
-    // links[0]?.classList.add('active');
   };
   markActiveLink();
   window.addEventListener('hashchange', markActiveLink);
 
-  // Opțional: marchează activ în timp ce derulezi pe secțiuni (#servicii, #despre, #tarife, #contact)
+  // Opțional: marchează activ pe derulare (#servicii, #despre, #tarife, #contact)
   const sections = document.querySelectorAll('section[id]');
   if ('IntersectionObserver' in window && sections.length) {
     const io = new IntersectionObserver((entries) => {
