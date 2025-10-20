@@ -2,6 +2,11 @@
 <html lang="ro">
 <head>
   <meta charset="utf-8" />
+  <script>
+  if (location.protocol !== 'https:' && location.hostname.endsWith('drburciu.ro')) {
+    location.replace('https://' + location.hostname + location.pathname + location.search + location.hash);
+  }
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cabinet Stomatologic • Dr. Ana Burciu</title>
   <meta name="description" content="Cabinet stomatologic modern în Iași: profilaxie, estetică dentară, endodonție, pedodonție. Programări rapide online.">
