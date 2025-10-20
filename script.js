@@ -1,12 +1,12 @@
 
-// Mobile nav toggle
+// Toggle meniu mobil
 const btn = document.querySelector('.menu-toggle');
-const mobile = document.querySelector('.mobile-nav');
 if (btn) {
   btn.addEventListener('click', () => {
-    mobile.style.display = mobile.style.display === 'block' ? 'none' : 'block';
+    document.body.classList.toggle('menu-open');
   });
 }
+
 
 // Simple appointment form handler (prevents empty fields)
 const form = document.querySelector('#appointmentForm');
