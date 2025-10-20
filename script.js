@@ -1,11 +1,44 @@
+// ===== Mobile menu toggle & auto-close =====
+const menuBtn   = document.querySelector('.menu-toggle');
+const mobileNav = document.querySelector('.mobile-nav');
+const allLinks  = document.querySelectorAll('.mobile-nav a, .nav a');
 
-// Toggle meniu mobil
-const btn = document.querySelector('.menu-toggle');
-if (btn) {
-  btn.addEventListener('click', () => {
-    document.body.classList.toggle('menu-open');
+function openMenu() {
+  document.body.classList.add('menu-open');
+  if (menuBtn) menuBtn.setAttribute('aria-expanded', 'true');
+}
+function closeMenu() {
+  document.body.classList.remove('menu-open');
+  if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+}
+
+if (menuBtn) {
+  menuBtn.addEventListener('click', () => {
+    const isOpen = document.body.classList.toggle('menu-open');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
   });
 }
+
+// Închide meniul după ce utilizatorul alege un link
+allLinks.forEach(a => {
+  a.addEventListener('click', () => {
+    closeMenu();
+  });
+});
+
+// Închide la Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeMenu();
+});
+
+// Închide dacă lățimea depășește breakpointul mobil
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 900) closeMenu();
+});
+
+// Închide la schimbarea hash-ului (navigare spre #secțiuni)
+window.addEventListener('hashchange', closeMenu);
+
 
 
 // Simple appointment form handler (prevents empty fields)
