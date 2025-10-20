@@ -3,21 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Programează o consultație la cabinetul stomatologic Dr. Ana Burciu din Iași. Alege intervalul dorit direct din calendarul online.">
   <title>Programări • Dr. Ana Burciu</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Programează o consultație la cabinetul stomatologic Dr. Ana Burciu din Iași. Alege ora dorită direct din calendarul online.">
   <link rel="icon" href="assets/favicon.ico">
   <style>
     body {
-      background-color: #f8fbff;
-      font-family: "Inter", sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: "Inter", sans-serif;
+      background: #f5f9ff;
+      color: #1e293b;
     }
 
     header {
-      background: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -39,16 +38,18 @@
       color: #1e293b;
       margin-bottom: 0.5rem;
       text-align: center;
+      font-weight: 800;
     }
 
     p.desc {
       text-align: center;
       color: #64748b;
       margin-bottom: 2rem;
+      font-size: 1rem;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
       padding: 2rem;
       text-align: center;
@@ -60,59 +61,11 @@
       border: none;
       border-radius: 10px;
       background: white;
-      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
 
-    footer {
-      background-color: #0f172a;
-      color: #e2e8f0;
+    .fallback {
+      display: none;
+      text-align: center;
       padding: 2rem;
-      margin-top: 4rem;
-    }
-
-    footer a {
-      color: #60a5fa;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <a href="index.html"><strong>Dr. Ana Burciu</strong></a>
-    <nav>
-      <a href="index.html#servicii">Servicii</a>
-      <a href="index.html#despre">Despre</a>
-      <a href="tarife.html">Tarife</a>
-      <a href="programari.html" style="color:#2563eb;">Programări</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <div class="container">
-      <h1>Programează o consultație</h1>
-      <p class="desc">Alege intervalul dorit din calendarul online de mai jos. Confirmarea va fi trimisă automat pe email.</p>
-
-      <!-- Calendar Zoho Bookings -->
-      <iframe
-        src="https://consultaiestomatologic.zohobookings.eu/#/250893000000043010?booknow=true"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p><strong>Cabinet Stomatologic Dr. Ana Burciu</strong></p>
-      <p>Str. Independenței nr. 45, Iași<br>
-      Tel: <a href="tel:+40744123456">0744 123 456</a> • Email: <a href="mailto:contact@drburciu.ro">contact@drburciu.ro</a></p>
-      <p style="margin-top:20px; font-size:0.9rem; color:#94a3b8;">© 2025 Dr. Ana Burciu — Toate drepturile rezervate</p>
-    </div>
-  </footer>
-</body>
-</html>
-
+      background
