@@ -1,3 +1,4 @@
+
 // Mobile nav toggle
 const btn = document.querySelector('.menu-toggle');
 const mobile = document.querySelector('.mobile-nav');
@@ -21,4 +22,22 @@ if (form) {
       }
     }
   });
+}
+
+
+// Mailto fallback for form submission
+if (form) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const subject = encodeURIComponent('Programare nouă – Dr. Ana Burciu');
+    const body = encodeURIComponent(
+      `Nume: ${data.get('nume')}\n` +
+      `Telefon: ${data.get('telefon')}\n` +
+      `Email: ${data.get('email')}\n` +
+      `Motiv: ${data.get('motiv')}\n` +
+      `Mesaj: ${data.get('mesaj') || ''}`
+    );
+    window.location.href = `mailto:contact@drburciu.ro?subject=${subject}&body=${body}`;
+  }, { once: true });
 }
