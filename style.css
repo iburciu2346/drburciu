@@ -134,3 +134,19 @@ a:hover { color: #2C6FBF; }
 
 .badge-inline { background: #EAF3FF; color: var(--primaryDark); padding: 4px 10px; border-radius: 999px; font-weight: 700; font-size: 12px; }
 
+
+/* Fix: mobile nav hidden by default and shown via toggle on mobile */
+.mobile-nav { display: none; }
+
+/* Header spacing */
+.header .row { padding: 14px 0; gap: 16px; }
+
+/* Prevent button full-width + focus ring */
+.btn { border: 0; outline: none; }
+.btn:focus { box-shadow: 0 0 0 3px rgba(74,144,226,.25); }
+
+/* Appointment button alignment */
+.appointment form button { justify-self: start; }
+
+/* Smooth scroll offset for sticky header */
+:target { scroll-margin-top: 80px; }
