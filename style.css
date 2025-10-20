@@ -145,7 +145,7 @@ a:hover { color: #2C6FBF; }
   color: var(--primaryDark);
   font-weight: 700;
   font-size: clamp(14px, 1.1rem, 18px);
-  padding: 6px 14px;
+  padding: 10px 14px;
   border-radius: 999px;
   letter-spacing: 0.2px;
   line-height: 1;
