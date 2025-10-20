@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="40" viewBox="0 0 140 40">
+  <rect rx="8" ry="8" x="0" y="0" width="40" height="40" fill="#4A90E2"/>
+  <path d="M20 10c6 0 11 5 11 11s-5 11-11 11-11-5-11-11 5-11 11-11z" fill="#FFFFFF" opacity=".85"/>
+  <text x="50" y="26" font-family="Poppins, Arial" font-size="16" fill="#2E3A44">Dr. Ana Burciu</text>
+</svg>
