@@ -149,3 +149,22 @@ a:hover { color: #2C6FBF; }
 
 /* Smooth scroll offset for sticky header */
 :target { scroll-margin-top: 80px; }
+
+/* === Nav fix === */
+.mobile-nav { display: none; } /* implicit ascuns */
+
+/* pe ecrane mici ascund meniul mare și arăt meniul mobil doar când e deschis */
+@media (max-width: 900px) {
+  .header .nav { display: none; }
+  body.menu-open .mobile-nav { display: block; }
+  .mobile-nav {
+    position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-nav a {
+    display: block; padding: 14px 24px; border-top: 1px solid var(--border); color: var(--text);
+  }
+}
+
