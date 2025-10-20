@@ -68,4 +68,98 @@
       display: none;
       text-align: center;
       padding: 2rem;
-      background
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 8px;
+      background-color: #2563eb;
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: #1d4ed8;
+    }
+
+    footer {
+      background-color: #0f172a;
+      color: #e2e8f0;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      iframe {
+        height: 1200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html"><strong>Dr. Ana Burciu</strong></a>
+    <nav>
+      <a href="index.html#servicii">Servicii</a>
+      <a href="index.html#despre">Despre</a>
+      <a href="index.html#tarife">Tarife</a>
+      <a href="programari.html" style="color:#2563eb;">Programări</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Programează o consultație</h1>
+      <p class="desc">Alege intervalul dorit din calendarul online de mai jos. Confirmarea va fi trimisă automat pe email.</p>
+
+      <iframe
+        src="https://cal.com/drburciu/consultatie-stomatologica?embed=1"
+        id="cal-frame"
+        allowfullscreen>
+      </iframe>
+
+      <div id="fallback" class="fallback">
+        <p>Calendarul nu se poate afișa încorporat. Deschide-l într-o pagină nouă:</p>
+        <a class="btn" href="https://cal.com/drburciu/consultatie-stomatologica" target="_blank">Deschide calendarul</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>Cabinet Stomatologic Dr. Ana Burciu</strong></p>
+      <p>Str. Independenței nr. 45, Iași<br>
+      Tel: <a href="tel:+40744123456">0744 123 456</a> • Email: <a href="mailto:contact@drburciu.ro">contact@drburciu.ro</a></p>
+      <p style="margin-top:20px; font-size:0.9rem; color:#94a3b8;">© 2025 Dr. Ana Burciu — Toate drepturile rezervate</p>
+    </div>
+  </footer>
+
+  <script>
+    // Fallback pentru browsere ce nu pot afișa iframe-ul
+    window.addEventListener("load", function() {
+      const frame = document.getElementById("cal-frame");
+      const fallback = document.getElementById("fallback");
+      let loaded = false;
+      frame.onload = () => loaded = true;
+      setTimeout(() => {
+        if (!loaded) fallback.style.display = "block";
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
