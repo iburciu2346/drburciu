@@ -161,11 +161,33 @@ a:hover { color: #2C6FBF; }
 @media (max-width: 900px) { .footer .cols { grid-template-columns: 1fr; } }
 .small { font-size: 14px; color: var(--muted); }
 
-.badge-inline { background: #EAF3FF; color: var(--primaryDark); padding: 4px 10px; border-radius: 999px; font-weight: 700; font-size: 12px; }
+/* Badge (Cabinet modern • Iași) – mai mare și lizibil */
+.badge-inline{
+  display: inline-block;
+  background: #E7F0FF;
+  color: var(--primaryDark);
+  font-weight: 700;
+  font-size: clamp(14px, 1.1rem, 18px);
+  padding: 6px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.2px;
+  line-height: 1;
+  vertical-align: middle;
+}
+.hero .badge-inline { margin-bottom: 10px; }
+
 
 
 /* Fix: mobile nav hidden by default and shown via toggle on mobile */
-.mobile-nav { display: none; }
+.mobile-nav {
+  display: none;              /* ascuns implicit */
+  position: fixed;
+  top: 64px;                  /* cât are headerul tău */
+  left: 0; right: 0;
+  background: #fff;
+  border-top: 1px solid var(--border);
+  z-index: 999;
+}
 
 /* Header spacing */
 .header .row { padding: 14px 0; gap: 16px; }
@@ -193,8 +215,17 @@ a:hover { color: #2C6FBF; }
     background: #fff;
     border-bottom: 1px solid var(--border);
   }
-  .mobile-nav a {
-    display: block; padding: 14px 24px; border-top: 1px solid var(--border); color: var(--text);
-  }
+ .mobile-nav a {
+  display: block;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
 }
-
+body.menu-open .mobile-nav { display: block; }
+body.menu-open { overflow: hidden; }  /* blochează scroll-ul în spate */
+}
+@media (min-width: 901px) {
+  .mobile-nav { display: none !important; }
+}
