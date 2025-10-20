@@ -2,6 +2,11 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8">
+  <script>
+  if (location.protocol !== 'https:' && location.hostname.endsWith('drburciu.ro')) {
+    location.replace('https://' + location.hostname + location.pathname + location.search + location.hash);
+  }
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Programări • Dr. Ana Burciu</title>
   <meta name="description" content="Programează o consultație la cabinetul stomatologic Dr. Ana Burciu din Iași. Alege ora dorită direct din calendarul online.">
