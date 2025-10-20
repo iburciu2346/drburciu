@@ -1,171 +1,110 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <script>
-  if (location.protocol !== 'https:' && location.hostname.endsWith('drburciu.ro')) {
-    location.replace('https://' + location.hostname + location.pathname + location.search + location.hash);
-  }
-</script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Programări • Dr. Ana Burciu</title>
-  <meta name="description" content="Programează o consultație la cabinetul stomatologic Dr. Ana Burciu din Iași. Alege ora dorită direct din calendarul online.">
-  <link rel="icon" href="assets/favicon.ico">
-  <style>
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background: #f5f9ff;
-      color: #1e293b;
-    }
+  <meta name="description" content="Programează online o consultație la cabinetul stomatologic Dr. Ana Burciu din Iași.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
 
-    header {
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+  <!-- Forțează HTTPS pe domeniul tău -->
+  <script>
+    if (location.protocol !== 'https:' && location.hostname.endsWith('drburciu.ro')) {
+      location.replace('https://' + location.hostname + location.pathname + location.search + location.hash);
     }
-
-    header a {
-      color: #1d4ed8;
-      text-decoration: none;
-      font-weight: 600;
-      margin: 0 10px;
-    }
-
-    h1 {
-      font-size: 2.2rem;
-      color: #1e293b;
-      margin-bottom: 0.5rem;
-      text-align: center;
-      font-weight: 800;
-    }
-
-    p.desc {
-      text-align: center;
-      color: #64748b;
-      margin-bottom: 2rem;
-      font-size: 1rem;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    iframe {
-      width: 100%;
-      height: 950px;
-      border: none;
-      border-radius: 10px;
-      background: white;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-    }
-
-    .fallback {
-      display: none;
-      text-align: center;
-      padding: 2rem;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: 8px;
-      background-color: #2563eb;
-      color: white;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .btn:hover {
-      background-color: #1d4ed8;
-    }
-
-    footer {
-      background-color: #0f172a;
-      color: #e2e8f0;
-      padding: 2rem;
-      margin-top: 4rem;
-    }
-
-    footer a {
-      color: #60a5fa;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      iframe {
-        height: 1200px;
-      }
-    }
-  </style>
+  </script>
 </head>
 <body>
-  <header>
-    <a href="index.html"><strong>Dr. Ana Burciu</strong></a>
-    <nav>
+
+  <!-- Header identic cu index -->
+  <header class="header">
+    <div class="container row">
+      <a class="brand" href="index.html" aria-label="Pagina principală">
+        <img src="assets/logo.svg" alt="Logo Dr. Ana Burciu" />
+        <span class="name">Dr. Ana Burciu</span>
+      </a>
+
+      <nav class="nav" aria-label="Navigație principală">
+        <a href="index.html#servicii">Servicii</a>
+        <a href="index.html#despre">Despre</a>
+        <a href="index.html#tarife">Tarife</a>
+        <a href="programari.html" class="btn btn-primary">Programări</a>
+        <a href="index.html#contact" class="btn btn-ghost">Contact</a>
+      </nav>
+
+      <button class="menu-toggle" aria-label="Meniu">Meniu</button>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Meniu mobil">
       <a href="index.html#servicii">Servicii</a>
       <a href="index.html#despre">Despre</a>
       <a href="index.html#tarife">Tarife</a>
-      <a href="programari.html" style="color:#2563eb;">Programări</a>
+      <a href="programari.html">Programări</a>
       <a href="index.html#contact">Contact</a>
     </nav>
   </header>
 
-  <main>
+  <!-- Conținut pagină -->
+  <section class="section">
     <div class="container">
-      <h1>Programează o consultație</h1>
-      <p class="desc">Alege intervalul dorit din calendarul online de mai jos. Confirmarea va fi trimisă automat pe email.</p>
+      <h1 class="title">Programează o consultație</h1>
+      <p class="desc">Alege intervalul dorit din calendarul de mai jos. Confirmarea îți ajunge automat pe email.</p>
 
-      <iframe
-        src="https://cal.com/drburciu/consultatie-stomatologica?embed=1"
-        id="cal-frame"
-        allowfullscreen>
-      </iframe>
+      <div class="frame-wrap" style="background:#fff; border:1px solid var(--border); border-radius:14px; overflow:hidden; box-shadow:0 8px 22px rgba(16,24,40,.06);">
+        <iframe
+          src="https://cal.com/drburciu/consultatie-stomatologica?embed=1"
+          style="width:100%; height:950px; border:0; display:block;"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
 
-      <div id="fallback" class="fallback">
-        <p>Calendarul nu se poate afișa încorporat. Deschide-l într-o pagină nouă:</p>
-        <a class="btn" href="https://cal.com/drburciu/consultatie-stomatologica" target="_blank">Deschide calendarul</a>
+        <!-- Fallback dacă un browser blochează iframe-ul -->
+        <div id="fallback" style="display:none; padding:24px; text-align:center;">
+          <p>Calendarul nu se poate afișa încorporat. Deschide-l într-o fereastră nouă:</p>
+          <a class="btn btn-primary" href="https://cal.com/drburciu/consultatie-stomatologica" target="_blank" rel="noopener">Deschide calendarul</a>
+        </div>
+      </div>
+
+      <p class="small" style="margin-top:12px;">Preferi telefon? Sună la <strong>0744 123 456</strong> (L–V 09:00–19:00).</p>
+    </div>
+  </section>
+
+  <!-- Footer identic -->
+  <footer id="contact" class="footer">
+    <div class="container cols">
+      <div>
+        <h3>Cabinet Stomatologic • Dr. Ana Burciu</h3>
+        <p>Str. Independenței nr. 45, Iași<br/>L–V 09:00–19:00</p>
+        <p>Tel: 0744 123 456 • Email: contact@drburciu.ro</p>
+      </div>
+      <div>
+        <h4>Linkuri</h4>
+        <p><a href="index.html#servicii">Servicii</a><br/><a href="index.html#tarife">Tarife</a><br/><a href="programari.html">Programări</a></p>
+      </div>
+      <div>
+        <h4>Harta</h4>
+        <p><a href="https://maps.google.com/?q=Iasi" target="_blank" rel="noopener">Deschide pe Google Maps</a></p>
       </div>
     </div>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p><strong>Cabinet Stomatologic Dr. Ana Burciu</strong></p>
-      <p>Str. Independenței nr. 45, Iași<br>
-      Tel: <a href="tel:+40744123456">0744 123 456</a> • Email: <a href="mailto:contact@drburciu.ro">contact@drburciu.ro</a></p>
-      <p style="margin-top:20px; font-size:0.9rem; color:#94a3b8;">© 2025 Dr. Ana Burciu — Toate drepturile rezervate</p>
+    <div class="container" style="margin-top:18px; border-top:1px solid var(--border); padding-top:14px;">
+      © 2025 Dr. Ana Burciu — Toate drepturile rezervate · <a href="index.html#confidentialitate" style="color:#c8d3dc">Politica de confidențialitate</a>
     </div>
   </footer>
 
+  <script src="script.js"></script>
   <script>
-    // Fallback pentru browsere ce nu pot afișa iframe-ul
-    window.addEventListener("load", function() {
-      const frame = document.getElementById("cal-frame");
-      const fallback = document.getElementById("fallback");
-      let loaded = false;
-      frame.onload = () => loaded = true;
-      setTimeout(() => {
-        if (!loaded) fallback.style.display = "block";
-      }, 1500);
+    // Fallback simplu dacă iframe-ul nu se încarcă
+    window.addEventListener('load', () => {
+      const frame = document.querySelector('iframe');
+      const fb = document.getElementById('fallback');
+      let ok = false;
+      frame.onload = () => ok = true;
+      setTimeout(() => { if (!ok) fb.style.display = 'block'; }, 1500);
     });
   </script>
 </body>
 </html>
-
