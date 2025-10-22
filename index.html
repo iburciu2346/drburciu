@@ -1,42 +1,91 @@
 <!DOCTYPE html>
-<html lang="ro">
 <head>
   <meta charset="utf-8" />
-  <script>
-  if (location.protocol !== 'https:' && location.hostname.endsWith('drburciu.ro')) {
-    location.replace('https://' + location.hostname + location.pathname + location.search + location.hash);
-  }
-</script>
+  <meta http-equiv="x-ua-compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cabinet Stomatologic • Dr. Ana Burciu</title>
-  <meta name="description" content="Cabinet stomatologic modern în Iași: profilaxie, estetică dentară, endodonție, pedodonție. Programări rapide online.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="Cabinet Stomatologic • Dr. Ana Burciu">
-  <meta property="og:description" content="Zâmbet sănătos, tratamente moderne. Programează-te online.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/hero.svg">
-  <meta property="og:url" content="https://drburciu.ro/">
 
-  <!-- Local Business Schema -->
+  <!-- Forțează HTTPS doar pe domeniul drburciu.ro (fallback pentru browsere vechi / când Enforce HTTPS nu e încă activ) -->
+  <script>
+    (function () {
+      var isHttps = location.protocol === 'https:';
+      var isDomain = location.hostname && location.hostname.endsWith('drburciu.ro');
+      if (!isHttps && isDomain) {
+        location.replace('https://' + location.hostname + location.pathname + location.search + location.hash);
+      }
+    })();
+  </script>
+
+  <!-- Titlu + descriere SEO -->
+  <title>Cabinet Stomatologic • Dr. Ana Burciu | Iași</title>
+  <meta name="description"
+        content="Cabinet stomatologic modern în Iași: profilaxie, estetică dentară, endodonție, pedodonție. Programări rapide online. Zâmbet sănătos, tratamente moderne și grijă pentru fiecare pacient." />
+  <meta name="keywords"
+        content="stomatolog Iași, dentist Iași, Dr. Ana Burciu, cabinet stomatologic, estetică dentară, detartraj, endodonție, pedodonție" />
+  <meta name="author" content="Dr. Ana Burciu" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical (evită duplicatele tip http / index.html / trailing slash) -->
+  <link rel="canonical" href="https://drburciu.ro/" />
+
+  <!-- Preconnect pentru fonturi (ce ai deja) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- CSS (păstrează calea ta) -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicon / PWA-ish -->
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/icon-180.png" />
+  <meta name="theme-color" content="#4A90E2" />
+
+  <!-- Open Graph (Facebook/WhatsApp) -->
+  <meta property="og:locale" content="ro_RO" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cabinet Stomatologic • Dr. Ana Burciu" />
+  <meta property="og:title" content="Cabinet Stomatologic • Dr. Ana Burciu | Iași" />
+  <meta property="og:description"
+        content="Tratamente moderne, grijă și tehnologie. Profilaxie, estetică dentară, endodonție și pedodonție. Programează-te online." />
+  <meta property="og:url" content="https://drburciu.ro/" />
+  <!-- Înlocuiește cu imaginea ta reală 1200x630 (max 300KB) -->
+  <meta property="og:image" content="https://drburciu.ro/assets/hero.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cabinet Stomatologic • Dr. Ana Burciu | Iași" />
+  <meta name="twitter:description"
+        content="Tratamente moderne, grijă și tehnologie. Profilaxie, estetică dentară, endodonție, pedodonție." />
+  <meta name="twitter:image" content="https://drburciu.ro/assets/hero.jpg" />
+
+  <!-- Schema.org: Local Business (Dentist) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Dentist",
-    "name": "Cabinet Stomatologic • Dr. Ana Burciu",
+    "name": "Cabinet Stomatologic Dr. Ana Burciu",
     "image": "https://drburciu.ro/assets/hero.jpg",
+    "url": "https://drburciu.ro/",
+    "logo": "https://drburciu.ro/assets/logo.svg",
+    "telephone": "+40 744 123 456",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Str. Independenței nr. 45",
       "addressLocality": "Iași",
+      "postalCode": "700000",
       "addressCountry": "RO"
     },
-    "url": "https://drburciu.ro/",
-    "telephone": "+40 744 123 456",
-    "openingHours": "Mo-Fr 09:00-19:00"
+    "openingHours": "Mo-Fr 09:00-19:00",
+    "priceRange": "€€",
+    "sameAs": [
+      "https://www.facebook.com/xxxxxxxx", 
+      "https://www.instagram.com/xxxxxxxx"
+    ]
   }
   </script>
 </head>
